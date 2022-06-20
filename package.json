@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "./node_modules/.bin/nodemon index.js",
+    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./config/sequelize.js",
     "lint": "./node_modules/.bin/eslint --format codeframe .",
-    "lint:fix": "./node_modules/.bin/eslint --fix --format stylish ."
+    "lint:fix": "./node_modules/.bin/eslint --fix --format stylish .",
+    "test": "./node_modules/.bin/mocha tests/**/*.test.js"
+
   },
   "repository": {
     "type": "git",
@@ -21,9 +24,11 @@
   "dependencies": {
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
-    "sequelize": "^5.22.5"
+    "sequelize": "^5.22.5",
+    "sequelize-cli": "^6.4.1"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "eslint": "^6.8.0",
     "nodemon": "^2.0.16"
   }
